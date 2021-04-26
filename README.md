@@ -1,13 +1,9 @@
-# BDD + Type Script + Clean Architecture + Cache
+# Sequelize
+ORM - MySql
 
-BDD (Behavior Driven Development)
+## Packages
 
-
-## Behavior Driven Development
-
-Given – dado um contexto;
-When – quando acontecer um evento;
-Then – então se espera que aconteça algo.
+npx sequelize-cli init
 
 ### Prerequisites
 
