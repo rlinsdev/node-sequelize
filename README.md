@@ -4,13 +4,17 @@ ORM - MySql
 ## Packages
 
 npx sequelize-cli init
+npx sequelize-cli model:create --name Pessoas --attributes nome:string,ativo:boolean,email:string,role:string
+npx sequelize-cli db:migrate
+npx sequelize-cli seed:generate --name demo-pessoa
+npx sequelize-cli db:seed:all
 
-### Prerequisites
+### MySQL by prompt
 
-What things you need to install the software and how to install them
+MySQL command line client
 
 ```
-Give examples
+use escola_ingles;
 ```
 
 ### Installing
