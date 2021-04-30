@@ -1,7 +1,7 @@
 const database = require('../models')
 
 class PessoaController {
-  static async petaTodasPessoas (req, res) {
+  static async pegaTodasPessoas (req, res) {
     try {
       const todasAsPessoas = await database.Pessoas.findAll()
       return res.status(200).json(todasAsPessoas)
