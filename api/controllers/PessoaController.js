@@ -71,8 +71,26 @@ class PessoaController {
     const { estudanteId } = req.body
     const novaMatricula = { ...req.body, estudanteId: Number(estudanteId) }
     try {
-      const novaMatriculaCriada = await database.Pessoas.create(novaMatricula)
+      const novaMatriculaCriada = await database.Matriculas.create(novaMatricula)
       return res.status(200).json(novaMatriculaCriada)
+    } catch (error) {
+      return res.status(500).json(error.message)
+    }
+  }
+
+  static async atualizaMatricula (req, res) {
+    const { estudanteId, matriculaId } = req.params
+    const novasInfos = req.body
+    // const { id } = req.params
+    try {
+      await database.Matriculas.update(novasInfos, {
+        where: {
+          id: Number(matriculaId),
+          estudante_id: Number(estudanteId)
+        }
+      })
+      const matriculaAtualizada = await database.Matriculas.findOne({ where: { id: Number(matriculaId) } })
+      return res.status(200).json(matriculaAtualizada)
     } catch (error) {
       return res.status(500).json(error.message)
     }
