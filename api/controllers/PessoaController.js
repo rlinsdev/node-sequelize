@@ -81,7 +81,6 @@ class PessoaController {
   static async atualizaMatricula (req, res) {
     const { estudanteId, matriculaId } = req.params
     const novasInfos = req.body
-    // const { id } = req.params
     try {
       await database.Matriculas.update(novasInfos, {
         where: {
@@ -91,6 +90,20 @@ class PessoaController {
       })
       const matriculaAtualizada = await database.Matriculas.findOne({ where: { id: Number(matriculaId) } })
       return res.status(200).json(matriculaAtualizada)
+    } catch (error) {
+      return res.status(500).json(error.message)
+    }
+  }
+
+  static async apagaMatricula (req, res) {
+    const { matriculaId } = req.params
+    try {
+      await database.Matriculas.destroy({
+        where: {
+          id: Number(matriculaId)
+        }
+      })
+      return res.status(200).json({ message: `Id ${matriculaId} deletado` })
     } catch (error) {
       return res.status(500).json(error.message)
     }
