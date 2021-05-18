@@ -16,6 +16,8 @@ npx sequelize-cli seed:generate --name demo-nivel
 npx sequelize-cli seed:generate --name demo-turmas
 npx sequelize-cli seed:generate --name demo-matriculas
 npx sequelize-cli db:seed:all
+npx sequelize-cli --seed 20210509212145-demo-matriculas.js
+npx sequelize db:seed --seed 20210509212145-demo-matriculas.js
 
 ### MySQL by prompt
 

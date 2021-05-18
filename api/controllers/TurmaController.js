@@ -10,7 +10,7 @@ class TurmaController {
     }
   }
 
-  static async pegaUmaTurmas (req, res) {
+  static async pegaUmaTurma (req, res) {
     const { id } = req.params
     try {
       const umaTurma = await database.Turma.findOne({ where: { id: Number(id) } })
